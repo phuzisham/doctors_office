@@ -20,9 +20,9 @@ describe('adding a new patient', {:type => :feature}) do
     visit('/administrator')
     fill_in('patientName', :with => 'Stan Lee')
     fill_in('birthdate', :with => '1963-02-14')
-    fill_in('doctor_id', :with => 1)
+    fill_in('doctor_name', :with => 'Frank Miller')
     click_button('Add Patient')
     expect(page).to have_content('Stan Lee')
-    expect(page).to have_content('1963-02-14')
+    expect(page).to have_content('Frank Miller')
   end
 end

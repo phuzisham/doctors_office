@@ -28,4 +28,13 @@ class Doctor
     self.name().==(another_doc.name()).&(self.specialty().==(another_doc.specialty())).&(self.id().==(another_doc.id()))
   end
 
+  def self.find(name)
+    found_doc = nil
+    Doctor.all().each() do |doctor|
+      if doctor.name().==(name)
+        found_doc = doctor.id
+      end
+    end
+    found_doc
+  end
 end
