@@ -8,7 +8,6 @@ describe('adding a new doctor', {:type => :feature}) do
   it('allows a user to add a doctor') do
     visit('/administrator')
     fill_in('docName', :with => 'Frank Miller')
-    # fill_in('specialty', :with => 'GP')
     find(:select).find(:option, 'GP').select_option
     click_button('Add Doctor')
     expect(page).to have_content('Frank Miller')
