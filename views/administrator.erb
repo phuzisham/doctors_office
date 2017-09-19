@@ -1,11 +1,26 @@
-<h3></h3>
 
-<form action="/new/doctor" method="post">
-  <div class="form-group">
-    <label for="name" class="form-label">Doctor's Name:</label>
-    <input type="text" name="name" class"form-control" id="name" placeholder="Doctor's Name" autofocus>
-    <label for="specialty" class="form-label">Doctor's Specialty:</label>
-    <input type="text" name="specialty" class"form-control" id="specialty" placeholder="Doctor's Specialty">
-    <button type="submit" class="button btn">Add Doctor</button>
-  </div>
-</form>
+<div id="newDoc">
+  <form action="/new/doctor" method="post">
+    <div class="form-group">
+      <label for="docName" class="form-label">Doctor's Name:</label>
+      <input type="text" name="docName" class"form-control" id="docName" placeholder="Doctor's Name" autofocus>
+      <label for="specialty" class="form-label">Doctor's Specialty:</label>
+      <input type="text" name="specialty" class"form-control" id="specialty" placeholder="Doctor's Specialty">
+      <button type="submit" class="button btn">Add Doctor</button>
+    </div>
+  </form>
+</div>
+
+<div id="newPatient">
+  <form action="/new/patient" method="post">
+    <div class="form-group">
+      <label for="patientName" class="form-label">Patient's Name:</label>
+      <input type="text" name="patientName" class"form-control" id="patientName" placeholder="Patient's Name" autofocus>
+      <label for="birthdate" class="form-label">Patient's Birthdate:</label>
+      <input type="date" name="birthdate" class"form-control" id="birthdate" placeholder="yyyy-mm-dd">
+      <label for="doctor_id" class="form-label">Patient's Doctor:</label>
+      <input type="number" name="doctor_id" class"form-control" id="doctor_id">
+      <button type="submit" class="button btn">Add Patient</button>
+    </div>
+  </form>
+</div>
