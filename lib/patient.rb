@@ -1,5 +1,5 @@
 class Patient
-  attr_reader(:name, :birthdate)
+  attr_reader(:name, :birthdate, :doctor_id)
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
@@ -13,8 +13,8 @@ class Patient
     returned_patients.each() do |patient|
       name = patient.fetch('name')
       birthdate = patient.fetch('birthdate')
-      doctor_id = patient.fetch('doctor_id').to_i()
-      patients.push(Patient.new({:name => name, :birthdate => birthdate, :doctor_id => doctor_id}))
+      doctor_id = patient.fetch('doctor_id')
+      patients.push(Patient.new({:name => name, :birthdate => birthdate, :doctor_id => doctor_id.to_i}))
     end
     patients
   end
@@ -24,6 +24,6 @@ class Patient
   end
 
   def ==(another_patient)
-    self.name().==(another_patient.name()).&(self.birthdate().==(another_patient.birthdate()))
+    self.name().==(another_patient.name()).&(self.birthdate().==(another_patient.birthdate())).&(self.doctor_id().==(another_patient.doctor_id()))
   end
 end

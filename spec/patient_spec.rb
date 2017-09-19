@@ -7,6 +7,28 @@ describe(Patient) do
     end
   end
 
+  describe('#name') do
+    it('will return a patients name') do
+      new_patient = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => 1)
+      expect(new_patient.name).to(eq('Frank Smith'))
+    end
+  end
+
+  describe('#birthdate') do
+    it('will return a patients birthdate') do
+      new_patient = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => 1)
+      expect(new_patient.birthdate).to(eq('1985-09-18'))
+    end
+  end
+
+  describe('#doctor_id') do
+    it('will return a patients doctor_id') do
+      new_patient = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => 1)
+      expect(new_patient.doctor_id).to(eq(1))
+    end
+  end
+
+
   describe('#save') do
     it('will add a patient to the database') do
       new_patient = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => 1)
@@ -15,5 +37,11 @@ describe(Patient) do
     end
   end
 
-  describe('')
+  describe("#==") do
+    it("if a patient has the same name") do
+      patient1 = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => 1)
+      patient2 = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => 1)
+      expect(patient1).to(eq(patient2))
+    end
+  end
 end
