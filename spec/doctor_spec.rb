@@ -11,7 +11,7 @@ describe(Doctor) do
     it('will add a doctor to the database') do
       new_doc = Doctor.new(:name => 'Frank Smith', :specialty => 'GP', :id => nil)
       new_doc.save
-      expect(new_doc.name).to(eq('Frank Smith'))
+      expect(Doctor.all()).to(eq([new_doc]))
     end
   end
 end
