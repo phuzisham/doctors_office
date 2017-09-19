@@ -16,6 +16,14 @@ get('/administrator') do
   erb(:administrator)
 end
 
+get('/doctor') do
+  erb(:doctor)
+end
+
+get('/patient') do
+  erb(:patient)
+end
+
 post('/new/doctor') do
   @name = params.fetch('docName')
   @specialty = params.fetch('specialty')
@@ -32,4 +40,11 @@ post('/new/patient') do
   new_patient = Patient.new({:name => @name, :birthdate => @birthdate, :doctor_id => doctor_id})
   new_patient.save()
   erb(:patientSuccess)
+end
+
+get('/doctor/patients') do
+  @name = params.fetch('docName')
+  doc_id = Doctor.find(@name)
+  @patients = Patient.find(doc_id)
+  erb(:patientList)
 end

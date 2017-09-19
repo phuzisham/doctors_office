@@ -44,4 +44,19 @@ describe(Patient) do
       expect(patient1).to(eq(patient2))
     end
   end
+
+  describe('.find') do
+    it('will find a list of patients for a specified doctor') do
+      new_doc = Doctor.new(:name => 'Frank Smith', :specialty => 'GP', :id => nil)
+      new_doc.save()
+      patient1 = Patient.new(:name => 'Frank Smith', :birthdate => '1985-09-18', :doctor_id => new_doc.id)
+      patient2 = Patient.new(:name => 'Bob Carlton', :birthdate => '1985-09-18', :doctor_id => new_doc.id)
+      patient3 = Patient.new(:name => 'Bill Builder', :birthdate => '1985-09-18', :doctor_id => 5)
+      patient1.save()
+      patient2.save()
+      patient3.save()
+      expect(Patient.find(new_doc.id)).to(eq([patient1, patient2]))
+    end
+  end
+
 end

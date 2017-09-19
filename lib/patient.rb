@@ -26,4 +26,15 @@ class Patient
   def ==(another_patient)
     self.name().==(another_patient.name()).&(self.birthdate().==(another_patient.birthdate())).&(self.doctor_id().==(another_patient.doctor_id()))
   end
+
+  def self.find(id)
+    found_patients = []
+    Patient.all().each() do |patient|
+      if patient.doctor_id().==(id)
+        found_patients.push(patient)
+      end
+    end
+    found_patients
+  end
+
 end
