@@ -4,6 +4,7 @@ class Doctor
   def initialize(attributes)
     @name = attributes.fetch(:name)
     @specialty = attributes.fetch(:specialty)
+    @id = attributes.fetch(:id)
   end
 
   def self.all
@@ -18,7 +19,8 @@ class Doctor
   end
 
   def save
-    DB.exec("INSERT INTO doctors (name, specialty) VALUES ('#{@name}', '#{@specialty}')")
+    result = DB.exec("INSERT INTO doctors (name, specialty) VALUES ('#{@name}', '#{@specialty}') RETURNING id;")
+    @id = result.first().fetch('id').to_i
   end
 
 end

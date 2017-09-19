@@ -9,7 +9,7 @@ describe(Doctor) do
 
   describe('#save') do
     it('will add a doctor to the database') do
-      new_doc = Doctor.new(:name => 'Frank Smith', :specialty => 'GP')
+      new_doc = Doctor.new(:name => 'Frank Smith', :specialty => 'GP', :id => nil)
       new_doc.save
       expect(new_doc.name).to(eq('Frank Smith'))
     end
